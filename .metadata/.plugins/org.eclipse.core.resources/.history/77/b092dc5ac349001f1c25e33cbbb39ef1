@@ -1,0 +1,49 @@
+package api.testcases;
+
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import com.github.javafaker.Faker;
+
+import api.endpoints.userendpoints;
+import api.payload.user;
+import io.restassured.response.Response;
+
+public class UserTest {
+	
+	Faker faker;
+	user payload;
+	
+	@BeforeClass
+	
+	public void generatetestdata() {
+		faker=new Faker();
+		payload=new user();
+		
+		payload.setId(faker.idNumber().hashCode());
+		payload.setUsername(faker.name().username());
+		payload.setFirstName(faker.name().firstName());
+		payload.setLastName(faker.name().lastName());
+		payload.setEmail(faker.internet().safeEmailAddress());
+		payload.setPassword(faker.internet().password());
+		payload.setPhone(faker.phoneNumber().cellPhone());
+		
+		System.out.print("payload has been set by the java faker");
+		
+	}
+	
+	
+	@Test
+	public void testcreateuser() {
+		Response response=userendpoints.createuser(payload);
+		
+		System.out.println("createuser has been from test method");
+		
+		response.then().log().all();
+		Assert.assertEquals(response.getStatusCode(),200);
+		
+		System.out.print("user has been created successfully");
+	}
+
+}

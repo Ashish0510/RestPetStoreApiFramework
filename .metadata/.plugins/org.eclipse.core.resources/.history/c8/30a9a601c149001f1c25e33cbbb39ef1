@@ -1,0 +1,15 @@
+package api.endpoints;
+
+import api.payload.user;
+import io.restassured.response.Response;
+import static io.restassured.RestAssured.given;
+
+public class userendpoints {
+	
+	public static Response createuser(user payload) {
+		
+		given().
+		
+	}
+
+}
