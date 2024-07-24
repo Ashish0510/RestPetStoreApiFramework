@@ -80,8 +80,6 @@ public class UserTest {
 		
 		
 	}
-	public void TestChange() {
-		System.out.println("changes*****");
-	}
+	
 
 }
