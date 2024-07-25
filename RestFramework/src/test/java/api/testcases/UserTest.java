@@ -88,5 +88,9 @@ public class UserTest {
 		System.out.println("changes new branch *****");
 	}
 	
+	public void AnotherNewBranch() {
+		System.out.println("changes new branch *****");
+	}
+	
 
 }
