@@ -83,5 +83,9 @@ public class UserTest {
 	public void TestChange() {
 		System.out.println("changes*****");
 	}
+	
+	public void gitTestChange() {
+		System.out.println("changes*****");
+	}
 
 }
